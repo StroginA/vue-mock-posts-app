@@ -1,5 +1,24 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
+import { onMounted, ref } from 'vue';
+
+var accessibilityMode = ref(false);
+
+function handleAccessibilityMode() {
+  if (accessibilityMode == true) {
+    accessibilityMode = false;
+		document.body.classList.remove("accessibility-mode");
+		localStorage.setItem("accessibility-mode", "false");
+	} else {
+    accessibilityMode = true;
+		document.body.classList.add("accessibility-mode");
+		localStorage.setItem("accessibility-mode", "true");
+	}
+}
+
+onMounted(() => {
+  document.body.setAttribute("accessibility-mode", localStorage.getItem("accessibility-mode"));
+})
 </script>
 
 <template>
@@ -9,7 +28,7 @@ import { RouterLink, RouterView } from 'vue-router'
         Concert CLUB
       </RouterLink>
     </h1>
-    <button class="nav-btn">
+    <button class="nav-btn" @click="handleAccessibilityMode">
       <span>
         Версия для слабовидящих
       </span>

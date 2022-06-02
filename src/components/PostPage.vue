@@ -125,7 +125,7 @@ function onSubmit(e) {
 <style>
 @font-face {
   font-family: 'Open Sans';
-  src: local('Open Sans'), url('../fonts/open-sans');
+  src: local('Open Sans'), url('../fonts/open-sans/OpenSans-Regular.ttf');
 }
 .post-container {
   height: 100%;
