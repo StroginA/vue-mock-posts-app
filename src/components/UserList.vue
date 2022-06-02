@@ -6,7 +6,7 @@ import UserPreview from './UserPreview.vue';
 var users = ref(null);
 
 onBeforeMount(
-  async () => {
+  async function() {
     axios.get(
       'https://jsonplaceholder.typicode.com/users'
     )

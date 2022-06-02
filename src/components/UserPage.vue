@@ -10,7 +10,7 @@ const props = defineProps({
 });
 
 onBeforeMount(
-  async () => {
+  async function() {
     axios.get(
       'https://jsonplaceholder.typicode.com/users/' + props.id
     )
@@ -31,36 +31,36 @@ onBeforeMount(
 <div v-if="user" class="user-container">
   <div>
   <h1 class="view-title">
-    {{this.user.username}}
+    {{user.username}}
   </h1>
   </div>
   <div class="user-info">
     <div class="user-info-item">
       <h3>
-        {{this.user.name}}
+        {{user.name}}
       </h3>
     </div>
     <div class="user-info-item">
       <h3>
-        {{this.user.email}}
+        {{user.email}}
       </h3>
     </div>
     <div class="user-info-item">
       <h3>
-        {{this.user.phone}}
+        {{user.phone}}
       </h3>
     </div>
     <div class="user-info-item">
       <h3>
-        {{this.user.website}}
+        {{user.website}}
       </h3>
     </div>
     <div class="user-info-item">
       <h3>
-        {{this.user.company.name}}
+        {{user.company.name}}
       </h3>
       <h4>
-        {{this.user.company.bs}}
+        {{user.company.bs}}
       </h4>
     </div>
   </div>

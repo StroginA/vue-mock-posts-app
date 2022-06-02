@@ -16,7 +16,7 @@ function handleAccessibilityMode() {
 	}
 }
 
-onMounted(() => {
+onMounted(function() {
   document.body.setAttribute("accessibility-mode", localStorage.getItem("accessibility-mode"));
 })
 </script>

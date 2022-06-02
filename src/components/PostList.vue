@@ -10,7 +10,7 @@ const props = defineProps({
 });
 
 onBeforeMount(
-  async () => {
+  async function() {
     axios.get(
       'https://jsonplaceholder.typicode.com/posts?userId=' + props.id
     )
@@ -30,7 +30,7 @@ onBeforeMount(
 <template>
   <div v-if="posts">
     <h1>
-      Посты пользователя {{this.username}}
+      Посты пользователя {{username}}
     </h1>
     <div class="post-list-full">
     <PostPreview

@@ -13,7 +13,7 @@ const props = defineProps({
 });
 
 onBeforeMount(
-  async () => {
+  async function() {
     axios.get(
       'https://jsonplaceholder.typicode.com/posts/' + props.id
     )
@@ -56,10 +56,10 @@ function onSubmit(e) {
 <template>
 <div class="post-container" v-if="post">
   <h1 class="view-title">
-    {{this.post.title}}
+    {{post.title}}
   </h1>
   <div class="post-body">
-    {{this.post.body}}
+    {{post.body}}
   </div>
   <h1 class="view-title">
     Комментарии

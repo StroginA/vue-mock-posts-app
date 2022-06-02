@@ -5,14 +5,6 @@ import UserPostsView from '../views/UserPostsView.vue'
 import UserView from '../views/UserView.vue'
 import PostView from '../views/PostView.vue'
 
-const User = {
-  template: `
-    <div class="user">
-      <router-view></router-view>
-    </div>
-  `,
-}
-
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
