@@ -32,6 +32,7 @@ onBeforeMount(
     <h1>
       Посты пользователя {{this.username}}
     </h1>
+    <div class="post-list-full">
     <PostPreview
     v-for="post in posts"
     :key="post.id"
@@ -40,8 +41,16 @@ onBeforeMount(
     :title="post.title"
     :body="post.body"
     />
+    </div>
   </div>
 </template>
 
 <style>
+.post-list-full {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: stretch;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 </style>

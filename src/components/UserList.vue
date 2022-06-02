@@ -18,7 +18,7 @@ onBeforeMount(
 </script>
 
 <template>
-  <h1>
+  <h1 class="view-title">
     Пользователи
   </h1>
   <UserPreview 
@@ -31,4 +31,18 @@ onBeforeMount(
 </template>
 
 <style>
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans'), url('../fonts/open-sans');
+}
+
+.view-title {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 40px;
+  color: #000000;
+}
 </style>

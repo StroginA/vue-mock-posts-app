@@ -3,31 +3,40 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header class="topnav">
+  <header class="nav">
     <h1 class="logo">
-      <RouterLink to="/">
-        TEST
+      <RouterLink class="router-link" to="/">
+        Concert CLUB
       </RouterLink>
     </h1>
-    <button>
+    <button class="nav-btn">
       <span>
         Версия для слабовидящих
       </span>
     </button>
   </header>
   <br>
-  <RouterView />
+  <RouterView class="content"/>
 </template>
 
 <style>
 @import '@/assets/base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@font-face {
+  font-family: 'Alegreya Sans SC';
+  src: local('Alegreya Sans SC'), url('./fonts/alegreya-sans-sc/AlegreyaSansSC-Regular.ttf');
+}
 
+@font-face {
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova'), url('./fonts/Proxima-Nova-Font/ProximaNova-Regular.otf');
+}
+
+#app {
+  margin: 0 0;
   font-weight: normal;
+  background-color: #E5E5E5;
+  min-height: 100%;
 }
 
 header {
@@ -35,8 +44,13 @@ header {
   max-height: 100vh;
 }
 
-.topnav {
+.nav {
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 1rem 5rem;
   background: #101010;
+  justify-content: start;
 }
 
 .logo {
@@ -44,10 +58,33 @@ header {
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
-  line-height: 60px;
-  text-align: center;
+  text-align: start;
   text-transform: uppercase;
   color: #FFFFFF;
+  margin-right: auto;
+  align-self: center;
+}
+
+.nav-btn {
+  padding: 0rem 2rem;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: none;
+}
+
+.content {
+  padding-top: 1rem;
+  padding-right: 5rem;
+  padding-left: 5rem;
+  padding-bottom: 5rem;
+  min-height: 100vh;
+  height: 100%;
+  background-color: #E5E5E5;
 }
 
 a,
@@ -57,17 +94,8 @@ a,
   transition: 0.4s;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.router-link {
+  color: unset;
 }
 
 </style>

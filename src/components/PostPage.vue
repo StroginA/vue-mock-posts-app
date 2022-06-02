@@ -54,40 +54,39 @@ function onSubmit(e) {
 </script>
 
 <template>
-<div v-if="post">
-  <h1>
+<div class="post-container" v-if="post">
+  <h1 class="view-title">
     {{this.post.title}}
   </h1>
-  <div>
+  <div class="post-body">
     {{this.post.body}}
   </div>
-  <h1>
+  <h1 class="view-title">
     Комментарии
   </h1>
-  <li
+  <div
+  class="comment"
   v-if="comments"
   v-for="comment in comments"
   >
-    <h3>
+    <h3 class="comment-name">
         {{comment.name}}
     </h3>
-    <h4>
+    <h4 class="comment-email">
         {{comment.email}}
     </h4>
-    <br>
-    <div>
+    <div class="comment-body">
         {{comment.body}}
     </div>
-    <hr>
-  </li>
+  </div>
   <br>
-    <button v-if="!displayCommentForm" @click="()=>{displayCommentForm=true}">
+    <button class="btn" v-if="!displayCommentForm" @click="()=>{displayCommentForm=true}">
     <span>
         Оставить комментарий...
     </span>
     </button>
-    <form v-if="displayCommentForm">
-        <label for="commentName">
+    <form class="comment-form" v-if="displayCommentForm">
+        <label class="comment-form-label" for="commentName">
             Имя:
         </label>
         <input 
@@ -96,7 +95,7 @@ function onSubmit(e) {
         v-model="commentName"
         >
         <br>
-        <label for="commentEmail">
+        <label class="comment-form-label" for="commentEmail">
             Email:
         </label>
         <input 
@@ -105,7 +104,7 @@ function onSubmit(e) {
         v-model="commentEmail"
         >
         <br>
-        <label for="commentBody">
+        <label class="comment-form-label" for="commentBody">
             Комментарий:
         </label>
         <textarea
@@ -113,7 +112,7 @@ function onSubmit(e) {
         v-model="commentBody"
         ></textarea>
         <br>
-        <input 
+        <input class="btn comment-btn" 
         type="submit" 
         value="Отправить"
         @submit.prevent
@@ -124,4 +123,45 @@ function onSubmit(e) {
 </template>
 
 <style>
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans'), url('../fonts/open-sans');
+}
+.post-container {
+  height: 100%;
+}
+.post-body {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: rgba(0, 0, 0, 0.41);
+}
+.comment {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans';
+  border: 1px solid #DADADA;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+}
+.comment:hover {
+  border: 1px solid #000000;
+}
+.comment-body {
+  color: rgba(0, 0, 0, 0.41);
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 20rem;
+  width: 30vw;
+}
+.comment-form-label {
+  color: #000000;
+  font-family: 'Open Sans';
+}
+.comment-btn {
+  margin-top: 1rem;
+  width: 30%;
+  justify-self: left;
+}
 </style>
