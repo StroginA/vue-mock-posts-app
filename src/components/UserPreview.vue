@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const props = defineProps({

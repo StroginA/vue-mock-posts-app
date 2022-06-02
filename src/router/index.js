@@ -1,8 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import UserView from '../views/UserView.vue'
+import UserProfileView from '../views/UserProfileView.vue'
 import UserPostsView from '../views/UserPostsView.vue'
+import UserView from '../views/UserView.vue'
 import PostView from '../views/PostView.vue'
+
+const User = {
+  template: `
+    <div class="user">
+      <router-view></router-view>
+    </div>
+  `,
+}
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,17 +28,18 @@ const router = createRouter({
     },
     {
       path: '/user/:userId',
+      component: UserView,
       children: [
         {
           path: '',
-          component: UserView
+          component: UserProfileView
         },
         {
           path: 'posts',
-          component: UserPostsView,
+          component: UserPostsView
         },
         {
-          path: ':postId',
+          path: 'posts/:postId',
           component: PostView
         }
       ]

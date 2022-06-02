@@ -29,3 +29,6 @@ onBeforeMount(
     :name="user.name"
   />
 </template>
+
+<style>
+</style>

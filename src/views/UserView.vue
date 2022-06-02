@@ -1,9 +1,9 @@
 <script setup>
-import UserPage from '../components/UserPage.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <main>
-    <UserPage />
+    <RouterView></RouterView>
   </main>
 </template>
